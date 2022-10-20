@@ -3,6 +3,7 @@ import sys
 
 def generate_path_yaml(path, filename):
 	file = open(filename, 'w')
+	original_stdout = sys.stdout
 	sys.stdout = file
 
 	print('inertial_frame_id: world')
@@ -14,6 +15,8 @@ def generate_path_yaml(path, filename):
 		print('    max_forward_speed: 1.6')
 		print('    heading: 0')
 		print('    use_fixed_heading: False')
+
+	sys.stdout = original_stdout
 
 
 if __name__ == '__main__':
