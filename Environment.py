@@ -123,21 +123,21 @@ class Robot:
 
 	@staticmethod
 	def motion_options(cell):
-		ops = [-1, 0, 1]
+		ops = [-1, 0, 1] # potential motions
 		poss_ops = []
-		if len(cell) == 3:
-			for i in ops:
-				for j in ops:
-					for k in ops:
+		if len(cell) == 3: # 3D
+			for i in ops: # x
+				for j in ops: # y
+					for k in ops: # z
 						poss_ops.append((cell[0] + i, cell[1] + j, cell[2] + k))
 			if cell in poss_ops:
 				poss_ops.remove(cell)
-		elif len(cell) == 2:
-			for i in ops:
-				for j in ops:
+		elif len(cell) == 2: # 2D
+			for i in ops: # x
+				for j in ops: # y
 					poss_ops.append((cell[0] + i, cell[1] + j))
 			if cell in poss_ops:
-				poss_ops.remove(cell)
+				poss_ops.remove(cell) # remove cell if it is all zeros
 		else:
 			print('warn: bad cell length')
 		return poss_ops

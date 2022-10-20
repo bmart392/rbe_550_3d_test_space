@@ -1,0 +1,232 @@
+inertial_frame_id: world
+waypoints:
+  -
+    point: [1, 1, 0]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [2, 2, 1]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [3, 3, 2]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [4, 4, 3]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [5, 5, 4]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [6, 6, 5]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [7, 7, 6]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [8, 8, 7]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [9, 9, 8]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [10, 10, 9]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [11, 11, 10]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [12, 12, 11]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [13, 13, 12]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [14, 14, 13]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [15, 15, 14]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [16, 16, 15]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [17, 17, 16]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [18, 18, 17]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [19, 19, 18]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [20, 19, 19]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [21, 19, 20]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [22, 20, 21]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [23, 20, 22]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [24, 21, 23]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [25, 21, 24]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [26, 22, 25]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [27, 22, 26]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [28, 23, 27]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [29, 23, 28]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [30, 24, 29]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [31, 24, 30]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [32, 25, 31]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [33, 25, 32]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [34, 25, 33]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [35, 26, 34]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [35, 26, 35]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [36, 27, 36]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [36, 27, 37]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [37, 27, 38]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [37, 27, 39]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [38, 28, 40]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [38, 28, 41]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [39, 29, 42]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [39, 29, 43]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [39, 29, 44]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
+  -
+    point: [40, 30, 45]
+    max_forward_speed: 1.6
+    heading: 0
+    use_fixed_heading: False
