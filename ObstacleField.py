@@ -20,9 +20,12 @@ class ObstacleField:
 
     # Constructor for the class
     def __init__(self, size_x, size_y, size_z, fill_percentage, log_file_name) -> None:
-        # Define location and name of logging file
+
+        # Define visualization variables
         self.visualizationPlot = None
         self.visualizationContainer = None
+
+        # Define location and name of logging file
         self.logFileLocation = log_file_name + "/" + log_file_name + '_DebugLog.txt'
         
         # Set size of obstacle field
@@ -516,6 +519,19 @@ class ObstacleField:
                 if not cell.isOccupiedByObstacle:
                     cell.resetNonObstacleFlags()
 
+    # Write array of obstacle locations to a text file
+    def write_obstacles_to_text_file(self, filename):
+        with open(filename, 'w') as obstacle_file:
+            for plane in self.mapGrid:
+                for row in plane:
+                    for cell in row:
+                        if cell.isOccupiedByObstacle:
+                            x_position = str(cell.positionX)
+                            y_position = str(cell.positionY)
+                            z_position = str(-cell.positionZ)
+                            position_string = x_position + "," + y_position + ...
+                            "," + z_position
+                            obstacle_file.write(position_string + "\n")
 
 # Define file behaviour when ran as main
 if __name__ == '__main__':
@@ -534,14 +550,14 @@ if __name__ == '__main__':
         # Generate a new obstacle field
         newObstacleField = ObstacleField(50, 50, 50, density / 100, folderName)
         newObstacleField.log_messages_in_a_log_file("Field Generated at " + str(density) + "%.")
-
-        # Show the obstacle field
+        newObstacleField.write_obstacles_to_text_file()
+        """ # Show the obstacle field
         newObstacleField.initialize_grid_visualization()
         newObstacleField.log_messages_in_a_log_file("Visualization Complete.")
 
         # Save a visualization of the result
         newObstacleField.save_grid_visualization(folderPath + 'emptyWorld_' + str(density) + 'percent.png')
-        newObstacleField.log_messages_in_a_log_file("Visualization Saved.")
+        newObstacleField.log_messages_in_a_log_file("Visualization Saved.")"""
         
         """
         # Generate the start and finish points for the search algorithms

@@ -26,6 +26,9 @@ map_size = [50, 50, 50]
 newObstacleField = ObstacleField(map_size[0], map_size[1], map_size[2], density / 100, folderName)
 newObstacleField.log_messages_in_a_log_file("Field Generated at " + str(density) + "%.")
 
+# Write the coordinates of the obstacles to a text file
+newObstacleField.write_obstacles_to_text_file("obstacle_locations.txt")
+
 # TODO: update temporary workaround and move into planner environment
 # start empty grid
 world_grid = np.empty((map_size[0], map_size[1], map_size[2]))
