@@ -21,9 +21,11 @@ if not path.exists(folderName):
 
 density = 2.5
 map_size = [50, 50, 50]
+start_p = (1, 1, 0)
+end_p = (40, 30, 45)
 
 # Generate a new obstacle field
-newObstacleField = ObstacleField(map_size[0], map_size[1], map_size[2], density / 100, folderName)
+newObstacleField = ObstacleField(map_size[0], map_size[1], map_size[2], density / 100, folderName, start_p, end_p)
 newObstacleField.log_messages_in_a_log_file("Field Generated at " + str(density) + "%.")
 
 # Write the coordinates of the obstacles to a text file
@@ -43,9 +45,6 @@ world = World('Earth',map_size)
 world.occupancy_grid = world_grid
 
 robot = Robot('Sphere',1)
-
-start_p = (1, 1, 0)
-end_p = (40, 30, 45)
 
 fig = plt.figure()
 ax = plt.axes(projection='3d')

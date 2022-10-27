@@ -11,7 +11,7 @@ def generate_path_yaml(path, filename):
 
 	for node in path:
 		print('  -')
-		print(f'    point: [{node[0]}, {node[1]}, {node[2]}]')
+		print(f'    point: [{node[0]}, {node[1]}, {-node[2]}]')
 		print('    max_forward_speed: 1.6')
 		print('    heading: 0')
 		print('    use_fixed_heading: False')
