@@ -7,6 +7,7 @@ import random
 from matplotlib import pyplot, patches
 from mpl_toolkits.mplot3d import Axes3D
 from plotSurfaceCube import plotSurfaceCube
+import csv
 """
 from breadthFirstSearch import breadthFirstSearch
 from depthFirstSearch import depthFirstSearch
@@ -368,7 +369,7 @@ class ObstacleField:
                                         1.0)
         
         # Show the figure when debugging the code
-        pyplot.show()
+        # pyplot.show()
 
     # Save the visualization of the obstacle field to an image file
     @staticmethod
@@ -533,16 +534,16 @@ class ObstacleField:
 
     # Write array of obstacle locations to a text file
     def write_obstacles_to_text_file(self, filename):
-        with open(filename, 'w') as obstacle_file:
+        with open(filename, 'w', newline='') as obstacle_file:
+            obstacle_file_writer = csv.writer(obstacle_file)
             for plane in self.mapGrid:
                 for row in plane:
                     for cell in row:
                         if cell.isOccupiedByObstacle:
-                            x_position = str(cell.positionX) + ","
-                            y_position = str(cell.positionY) + ","
+                            x_position = str(cell.positionX)
+                            y_position = str(cell.positionY)
                             z_position = str(-cell.positionZ)
-                            position_string = x_position + y_position + z_position
-                            obstacle_file.write(position_string + "\n")
+                            obstacle_file_writer.writerow([x_position, y_position, z_position])
 
     # Set a number of cells around a cell to be not blocked by obstacles
     def set_cells_around_cell_to_not_obstacles(self, point, number_of_cells):
@@ -572,7 +573,7 @@ if __name__ == '__main__':
         # Generate a new obstacle field
         newObstacleField = ObstacleField(20, 30, 10, density / 100, folderName, (4, 4, 4), (16, 24, 6))
         newObstacleField.log_messages_in_a_log_file("Field Generated at " + str(density) + "%.")
-        newObstacleField.write_obstacles_to_text_file("obstacle_locations.txt")
+        newObstacleField.write_obstacles_to_text_file("obstacle_locations.csv")
         # Show the obstacle field
         newObstacleField.initialize_grid_visualization()
         newObstacleField.log_messages_in_a_log_file("Visualization Complete.")
