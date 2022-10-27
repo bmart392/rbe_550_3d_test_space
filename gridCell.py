@@ -18,6 +18,7 @@ class gridCell:
         self.parentCell = ""
         self.distanceToStartPosition = 0
         self.isInQueue = False
+        self.cannotBeObstacle = False
 
     # Set the position values of the cell
     def setPositions(self, positionX, positionY, positionZ):
@@ -41,6 +42,7 @@ class gridCell:
         self.isVisitedBySearchAlgorithm = False
         self.isOnPath = False
         self.parentCell = ""
+        self.cannotBeObstacle = False
 
     # Check if the cell is available for visiting based on whether or not to include having previously been visited
     def isAvailableForVisiting(self, includingVisited):
@@ -48,7 +50,10 @@ class gridCell:
 
     # Check if the cell is open
     def isCellOpen(self):
-        return not(self.isOccupiedByObstacle or self.isOccupiedByRobot)
+        return not(self.isOccupiedByObstacle or
+                   self.isOccupiedByRobot or
+                   self.isStartingPosition or
+                   self.isGoalPosition)
         
     # Fill the cell with an obstacle
     def fillWithObstacle(self):
@@ -65,6 +70,10 @@ class gridCell:
     # Set the cell as the goal point
     def setAsGoal(self):
         self.isGoalPosition = True
+
+    # Prevent obstacles from being placed in a cell
+    def blockFromBeingObstacle(self):
+        self.cannotBeObstacle = True
 
     # Create a stirng representation of the string
     def visualizeAsString(self):

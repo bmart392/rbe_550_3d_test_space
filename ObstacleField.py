@@ -19,7 +19,7 @@ from randomSearch import randomSearch
 class ObstacleField:
 
     # Constructor for the class
-    def __init__(self, size_x, size_y, size_z, fill_percentage, log_file_name) -> None:
+    def __init__(self, size_x, size_y, size_z, fill_percentage, log_file_name, start_position, end_position) -> None:
 
         # Define visualization variables
         self.visualizationPlot = None
@@ -121,6 +121,18 @@ class ObstacleField:
         # Declare coordinate loop limit
         max_coordinate_loop_index = 25
 
+        # Set starting point cell
+        self.mapGrid[start_position[2], start_position[1], start_position[0]].setAsStart()
+
+        # Prevent obstacles from being placed too closely to the start point
+        self.set_cells_around_cell_to_not_obstacles(start_position, 2)
+
+        # Set goal point
+        self.mapGrid[end_position[2], end_position[1], end_position[0]].setAsGoal()
+
+        # Prevent obstacles from being placed too closely to the goal point
+        self.set_cells_around_cell_to_not_obstacles(end_position, 2)
+
         # While the desired number of filled cells is less than the goal number
         while number_of_cells_filled_currently < number_of_cells_to_fill and new_obstacle_loop_counter < max_obstacle_loop_index:
 
@@ -149,8 +161,8 @@ class ObstacleField:
 
                 # Check that the possible origin of the new obstacle is open
                 coordinates_are_valid = self.mapGrid[int(new_obstacle_coordinates[2]),
-                                                     int(new_obstacle_coordinates[0]),
-                                                     int(new_obstacle_coordinates[1])].isCellOpen()
+                                                     int(new_obstacle_coordinates[1]),
+                                                     int(new_obstacle_coordinates[0])].isCellOpen()
 
                 # If the coordinate is valid
                 if coordinates_are_valid:
@@ -356,7 +368,7 @@ class ObstacleField:
                                         1.0)
         
         # Show the figure when debugging the code
-        # pyplot.show()
+        pyplot.show()
 
     # Save the visualization of the obstacle field to an image file
     @staticmethod
@@ -526,12 +538,22 @@ class ObstacleField:
                 for row in plane:
                     for cell in row:
                         if cell.isOccupiedByObstacle:
-                            x_position = str(cell.positionX)
-                            y_position = str(cell.positionY)
+                            x_position = str(cell.positionX) + ","
+                            y_position = str(cell.positionY) + ","
                             z_position = str(-cell.positionZ)
-                            position_string = x_position + "," + y_position + ...
-                            "," + z_position
+                            position_string = x_position + y_position + z_position
                             obstacle_file.write(position_string + "\n")
+
+    # Set a number of cells around a cell to be not blocked by obstacles
+    def set_cells_around_cell_to_not_obstacles(self, point, number_of_cells):
+        for z in range(-number_of_cells, number_of_cells):
+            for y in range(-number_of_cells, number_of_cells):
+                for x in range(-number_of_cells, number_of_cells):
+                    if x != 0 and y != 0 and z != 0:
+                        self.mapGrid[point[2] + z,
+                                     point[1] + y,
+                                     point[0] + x].blockFromBeingObstacle()
+
 
 # Define file behaviour when ran as main
 if __name__ == '__main__':
@@ -548,13 +570,13 @@ if __name__ == '__main__':
     for density in [1]:
 
         # Generate a new obstacle field
-        newObstacleField = ObstacleField(50, 50, 50, density / 100, folderName)
+        newObstacleField = ObstacleField(20, 30, 10, density / 100, folderName, (4, 4, 4), (16, 24, 6))
         newObstacleField.log_messages_in_a_log_file("Field Generated at " + str(density) + "%.")
-        newObstacleField.write_obstacles_to_text_file()
-        """ # Show the obstacle field
+        newObstacleField.write_obstacles_to_text_file("obstacle_locations.txt")
+        # Show the obstacle field
         newObstacleField.initialize_grid_visualization()
         newObstacleField.log_messages_in_a_log_file("Visualization Complete.")
-
+        """
         # Save a visualization of the result
         newObstacleField.save_grid_visualization(folderPath + 'emptyWorld_' + str(density) + 'percent.png')
         newObstacleField.log_messages_in_a_log_file("Visualization Saved.")"""
