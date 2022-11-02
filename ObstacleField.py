@@ -126,13 +126,13 @@ class ObstacleField:
         self.mapGrid[start_position[2], start_position[1], start_position[0]].setAsStart()
 
         # Prevent obstacles from being placed too closely to the start point
-        self.set_cells_around_cell_to_not_obstacles(start_position, 2)
+        self.set_cells_around_cell_to_not_obstacles(start_position, 10)
 
         # Set goal point
         self.mapGrid[end_position[2], end_position[1], end_position[0]].setAsGoal()
 
         # Prevent obstacles from being placed too closely to the goal point
-        self.set_cells_around_cell_to_not_obstacles(end_position, 2)
+        self.set_cells_around_cell_to_not_obstacles(end_position, 10)
 
         # While the desired number of filled cells is less than the goal number
         while number_of_cells_filled_currently < number_of_cells_to_fill and new_obstacle_loop_counter < max_obstacle_loop_index:
