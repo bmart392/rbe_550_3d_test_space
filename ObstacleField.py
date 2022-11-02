@@ -2,7 +2,7 @@
 from os import makedirs, path
 import numpy as np
 from gridCell import gridCell
-from obstacle import obstacle
+from Obstacle import Obstacle
 import random
 from matplotlib import pyplot, patches
 from mpl_toolkits.mplot3d import Axes3D
@@ -138,15 +138,15 @@ class ObstacleField:
         while number_of_cells_filled_currently < number_of_cells_to_fill and new_obstacle_loop_counter < max_obstacle_loop_index:
 
             # Generate a new obstacle
-            new_obstacle = obstacle()
+            new_obstacle = Obstacle()
 
             # Increment the count for the type of obstacle created to ensure even distribution of obstacles
             self.obstacleTypes[new_obstacle.shapeType] = self.obstacleTypes[new_obstacle.shapeType] + 1
 
             # Calculate the bounds of all possible locations that the obstacle could be placed
-            valid_field_bounds_x = self.sizeX - new_obstacle.xSize
-            valid_field_bounds_y = self.sizeY - new_obstacle.ySize
-            valid_field_bounds_z = self.sizeZ - new_obstacle.zSize
+            valid_field_bounds_x = self.sizeX - new_obstacle.x_size
+            valid_field_bounds_y = self.sizeY - new_obstacle.y_size
+            valid_field_bounds_z = self.sizeZ - new_obstacle.z_size
 
             # Flag that a valid origin for the new obstacle have not been found
             coordinates_are_valid = False
@@ -176,8 +176,8 @@ class ObstacleField:
                     second_time_through = False
 
                     # Iterate over each cell in the obstacle
-                    for x in range(new_obstacle.xSize):
-                        for y in range(new_obstacle.ySize):
+                    for x in range(new_obstacle.x_size):
+                        for y in range(new_obstacle.y_size):
 
                             # Calculate the location of the proposed cell in the obstacle field based on its
                             # location in the obstacle
@@ -250,8 +250,8 @@ class ObstacleField:
                     obstacle_coordinate_z = int(coordinatePair[2] - origin[2])
                     
                     # If the specified cell is occupied by an obstacle
-                    if new_obstacle.obstacleShape[obstacle_coordinate_y,
-                                                  obstacle_coordinate_x]:
+                    if new_obstacle.obstacle_shape[obstacle_coordinate_y,
+                                                   obstacle_coordinate_x]:
 
                         # Set the corresponding cell in the obstacle field as occupied by an obstacle
                         corresponding_cell_in_field = self.mapGrid[int(coordinatePair[2]),
