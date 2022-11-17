@@ -2,7 +2,7 @@ from os import makedirs, path
 
 import numpy as np
 
-from ObstacleField import ObstacleField
+from ObstacleFieldGeneration.ObstacleField import ObstacleField
 from Environment import World, Robot
 from AStar import AStar
 import matplotlib.pyplot as plt
@@ -35,10 +35,10 @@ newObstacleField.write_obstacles_to_text_file("obstacle_locations.txt")
 # start empty grid
 world_grid = np.empty((map_size[0], map_size[1], map_size[2]))
 # pull values from mapGrid generation
-for grid1 in newObstacleField.mapGrid:
+for grid1 in newObstacleField.map_grid:
 	for grid2 in grid1:
 		for node in grid2:
-			world_grid[node.positionX][node.positionY][node.positionZ] = not node.isCellOpen()
+			world_grid[node.position_x][node.position_y][node.position_z] = not node.isCellOpen()
 
 # initiate world with mapGrid data
 world = World('Earth',map_size)

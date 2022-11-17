@@ -1,0 +1,5 @@
+Log file and filepath created.
+Field Generated at 0.95% density.
+Obstacle locations generated in csv file in: ../gazebo_interface/object_locations.csv
+Visualization saved at: TestData/test_11-16-2022/test_11-16-2022.png
+File execution complete.
